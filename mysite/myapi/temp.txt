@@ -1,0 +1,61 @@
+
+pip install django-cors-headers
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'corsheaders', # добавляем
+]
+
+MIDDLEWARE_CLASSES = [
+    'corsheaders.middleware.CorsMiddleware', # добавляем
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+CORS_ORIGIN_WHITELIST = [
+    'localhost:80',
+    'localhost:8000',
+    '127.0.0.1:8000'
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_HEADERS = default_headers + (
+    'Access-Control-Allow-Origin',
+)
+
+# CORS_ORIGIN_WHITELIST = [
+#     'http://localhost:8000',
+#     'http://127.0.0.1:8000'
+# ]
+
+_________________________________________________________________________________________
+// указываем URL загрузки
+//const request_URL = ('https://jsonplaceholder.typicode.com/users');
+const request_URL = ('http://127.0.0.1:8000/heroes');
+// создаем нов экз протокола HTTP
+/*const xhr = new XMLHttpRequest();
+// Get запрашивает данные у сервера
+xhr.open('GET', request_URL);
+xhr.onload = () => {
+    if(xhr.status >= 400) {
+        console.log(xhr.response);
+    } else {
+        console.log(xhr.response);
+    }
+}
+// отправляем запрос на сервер
+xhr.send();
+*/
