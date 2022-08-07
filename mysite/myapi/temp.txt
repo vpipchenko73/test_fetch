@@ -12,8 +12,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE_CLASSES = [
-    'corsheaders.middleware.CorsMiddleware', # добавляем
-    'django.middleware.common.CommonMiddleware',
+    "corsheaders.middleware.CorsMiddleware" ,
+    "django.middleware.common.CommonMiddleware" ,
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -37,7 +37,7 @@ CORS_ALLOW_HEADERS = default_headers + (
 )
 
 # CORS_ORIGIN_WHITELIST = [
-#     'http://localhost:8000',
+#     'http://localhost:8080',
 #     'http://127.0.0.1:8000'
 # ]
 
@@ -59,3 +59,51 @@ xhr.onload = () => {
 // отправляем запрос на сервер
 xhr.send();
 */
+
+
+«Access-Control-Allow-Origin — Unblock»
+
+body: JSON.stringify({
+    name: "Beer",
+    alias: "Sweety"
+    })
+
+fetch( , {
+  method: "post",
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+
+  //make sure to serialize your JSON body
+  body: JSON.stringify({
+    name: "Beer",
+    alias: "Seety"
+  })
+})
+.then( (response) => {
+   //do something awesome that makes the world a better place
+});
+получение текстовых данных _______________________________________________________
+
+const options = {
+      method: 'GET', // выбор метода запроса
+      mode: 'cors', // режим работы запроса
+      headers: { // дополнительные заголовки для запроса
+        'Content-Type': 'application/json',
+      },
+    }
+
+var razmetka ="";
+
+ fetch( 'http://127.0.0.1:8000/heroes/', options ) // локальный ресурс  работает только
+      .then(response => response.text())
+      //.then(data => console.log (data))
+      .then(data => razmetka = data)
+      .catch(() => console.log('error') );
+
+const btn = document.querySelector('.j-btn');
+btn.addEventListener('click', () =>{
+
+console.log(razmetka)
+})
